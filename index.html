@@ -36,9 +36,9 @@
                        <input class="form-check-input" type="checkbox" name="remember"> Remember me
                        </label>
                   </div>
-                  <button type="text" class="btn btn-primary width:100px;">Login</button>
+                  <button type="text" class="btn btn-primary width:100px;" id="log_in">Login</button>
                   <br>
-                  <a href="#" class="btn btn-outline-dark text-light">Don't have an account? <span style="text-decoration:underline;">Sign Up</span></a>
+                  <a href="./register.html" class="btn btn-outline-dark text-light">Don't have an account? <span style="text-decoration:underline;">Sign Up</span></a>
                </div>
                  
               </div>
@@ -48,4 +48,46 @@
  
    
   </body>
+  <script>
+    const BASE_URL="http://46.137.197.173:3000/"
+
+    function apiCallPost(childUrl, param){
+    $.ajax({
+        url: BASE_URL+childUrl,
+        type: 'POST',
+        data: JSON.stringify(param),
+        contentType: 'application/json; charset=utf-8',
+        success: function (response) {
+            alert(response);
+        },
+        error: function (error) {
+            alert(error);
+        }
+      })
+    } 
+
+
+    $(document).ready(()=>{
+        $("#log_in").click(()=>{
+          let param = loginInfo();
+            if(param) apiCallPost("login",param)    
+            else  alert("Invalid Data")
+        })
+    })
+
+    function loginInfo(){
+      let username = $("#username").val()
+      if (!username){
+        return null;
+      }
+      let password = $("#pwd").val()
+      if (!password){
+        return null;
+      }
+      return {
+        username,password
+      }
+    }
+ 
+  </script>
 </html>
