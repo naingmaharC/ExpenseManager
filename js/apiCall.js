@@ -30,6 +30,19 @@ instance.interceptors.response.use(
     }
 )
 
+const addExpenseData = (param) => {
+    return new Promise((resolve,reject)=>{
+        instance.post("expense",{param})
+            .then(response=> {
+                alert("Successfully added")
+                resolve(response.data)
+            })
+            .catch(error=> {
+                reject(error);
+            })
+    })        
+}
+
 const getUserData = () => {
     return new Promise((resolve,reject)=>{
         instance.get("users")
