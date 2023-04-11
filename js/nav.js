@@ -1,6 +1,8 @@
 const navData = [
     {label:"Category",route:"category.html",icon:"fa-circle-nodes"},
-    {label:"Expense",route:"expense.html",icon:"fa-money-bill-transfer"}
+    {label:"Expense",route:"expense.html",icon:"fa-money-bill-transfer"},
+    {label:"Income",route:"income.html",icon:"fa-hand-holding-dollar"},
+    {label:"Income",route:"income.html",icon:"fa-hand-holding-dollar"},
 ] 
 
 const generateNavList = () => {
