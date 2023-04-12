@@ -29,8 +29,8 @@
                           <input type="number" class="form-control" id="amount" placeholder="amount" name="amount">
                       </div>
                       <div class="mb-3">
-                          <label for="destription">Description</label>
-                          <input type="text" class="form-control" id="destription" placeholder="destription" name="destription">
+                          <label for="description">Description</label>
+                          <input type="text" class="form-control" id="description" placeholder="Description" name="description">
                     </div>
                     <br>
                     <div class="d-flex justify-content-center">
@@ -66,12 +66,12 @@
             return null;
           } 
           amount = parseInt(amount)
-          let destription = $("#destription").val()
-          if (!destription){
+          let description = $("#description").val()
+          if (!description){
             return null;
           }
           return {
-              label,amount ,destription 
+              label,amount ,description 
           }
       }
       </script>

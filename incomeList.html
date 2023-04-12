@@ -47,7 +47,7 @@
                 console.warn(error)
             })
     
-        const incomeListTable = (data= [{label,amount,description}]) =>{
+        const incomeListTable = (data= [{_id,label,amount,description}]) =>{
             data.map((row,index)=>{
                 $("#income_list").append(`
                     <tr>
@@ -55,10 +55,15 @@
                         <td>${row.amount}</td>
                         <td>${row.description}</td>
                         <td>
-                            <button type="button" class="btn btn-danger">Delete</button>
+                            <button type="button" class="btn btn-danger" onclick="delIncome('${row._id}')" >Delete</button>
                         </td>
                     </tr>
                 `)
+            })
+        }
+        function delIncome(id){
+            deleteIncomeList(id).then(()=>{
+                alert("Successfully Deleted " + id)
             })
         }
 

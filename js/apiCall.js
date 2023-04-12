@@ -106,13 +106,22 @@ const incomeData = (param) => {
         instance.post("income", param)
             .then(response => {
                 resolve(response.data)
-                window.location = "dashboard.html"
                 })
                 .catch(error=> {
                     reject(error);
                 })
         })        
-    }    
+    }
+    
+    const  deleteIncomeList = (id = "") => {
+        return new Promise((resolve, reject) => {
+            instance.delete("income?id="+id)
+                .then(response => resolve(response.data))
+                .catch(error => {
+                    reject(error);
+                })
+        })
+    }
           
 const apiCallCategoryPost = (param) => {
     return new Promise((resolve, reject) => {
