@@ -1,7 +1,7 @@
-.themesColor {
-  background-color: #616161;
+.bgColor {
+  background-color: black;
 }
 
-.bgOpacity {
-    background-color: rgba(00, 00, 00, 0.3);
+.formColor {
+    background-color: #494848;
 }
