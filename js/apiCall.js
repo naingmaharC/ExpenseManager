@@ -82,7 +82,6 @@ const submitLogin = (param) => {
             instance.post("login",param)
                 .then(response=> {
                     resolve(response.data)
-                    console.log(response.data)
                     localStorage.setItem(TOKEN_KEY,response.data.token)
                     window.location = "dashboard.html"
                 })
@@ -94,9 +93,8 @@ const submitLogin = (param) => {
 
 const incomeData = (param) => {
     return new Promise((resolve,reject)=>{
-        instance.post("income",{param})
+        instance.post("income",param)
             .then(response=> {
-                alert("Successfully added")
                 resolve(response.data)
                 })
                 .catch(error=> {
