@@ -1,7 +1,7 @@
 // const axios = require("axios").default
 
-// const BASE_URL = "http://46.137.197.173:3000/"
-const BASE_URL = "http://localhost:3000/"
+const BASE_URL = "http://46.137.197.173:3000/"
+// const BASE_URL = "http://localhost:3000/"
 
 const instance = axios.create({
     baseURL: BASE_URL,
@@ -62,3 +62,32 @@ const deleteUser = (id = "") => {
             })
     })        
 }
+
+
+const submitLogin = (param) => {
+    return new Promise((resolve,reject)=>{
+            instance.post("login",param)
+                .then(response=> {
+                    resolve(response.data)
+                    console.log(response.data)
+                    localStorage.setItem(TOKEN_KEY,response.data.token)
+                    window.location = "dashboard.html"
+                })
+                .catch(error=> {
+                    reject(error);
+                })
+        })        
+    }
+
+const incomeData = (param) => {
+    return new Promise((resolve,reject)=>{
+        instance.post("income",{param})
+            .then(response=> {
+                alert("Successfully added")
+                resolve(response.data)
+                })
+                .catch(error=> {
+                    reject(error);
+                })
+        })        
+    }    

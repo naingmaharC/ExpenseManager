@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet"> 
     <script src="./js/static.js"></script>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Expense Manager</title>
 </head>
 <body  class="themesColor">
@@ -53,31 +54,14 @@
  
    
   </body>
+  <script src="./js/apiCall.js" ></script>
   <script src="./js/authChecker.js"></script>
   <script>
-    const BASE_URL="http://46.137.197.173:3000/"
-
-    function apiCallPost(childUrl, param){
-    $.ajax({
-        url: BASE_URL+childUrl,
-        type: 'POST',
-        data: JSON.stringify(param),
-        contentType: 'application/json; charset=utf-8',
-        success: function (response) {
-          localStorage.setItem(TOKEN_KEY,response.token)
-          window.location = "dashboard.html"
-        },
-        error: function (error) {
-            alert(error);
-        }
-      })
-    } 
-
 
     $(document).ready(()=>{
         $("#log_in").click(()=>{
           let param = loginInfo();
-            if(param) apiCallPost("login",param)    
+            if(param)submitLogin (param)    
             else  alert("Invalid Data")
         })
     })

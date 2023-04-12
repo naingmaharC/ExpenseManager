@@ -9,7 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a4bde1e6e3.js" crossorigin="anonymous"></script> 
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
     <title>Expense Manager</title> 
 </head>
 <body class="bg-dark">
@@ -39,28 +40,29 @@
         </div>
     </div> 
 </body> 
-
+      <script src="./js/static.js"></script>
+    <script src="./js/apiCall.js"></script>
       <script src="./js/nav.js"> </script>
+      <script src="./income.html"></script>
   <script>
-      const BASE_URL="http://46.137.197.173:3000/"
 
-      function apiCallPost(childUrl, param){
-      $.ajax({
-          url: BASE_URL+childUrl,
-          type: 'POST',
-          data: JSON.stringify(param),
-          contentType: 'application/json; charset=utf-8',
-          headers:{
-                    authorization: "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiX2lkIjoiNjQzM2QwMGU4NmFhYmU1OGQ5ZGQ3NDkxIiwiaWF0IjoxNjgxMTE3ODgyfQ.ubjAROlmJB-jCDb9i6J1JQ9jYArihgKiOc_fsktXO48"
-                },
-          success: function (response) {
-              alert(response);
-          },
-          error: function (error) {
-              alert(error);
-          }
-        })
-      } 
+    //   function apiCallPost(childUrl, param){
+    //   $.ajax({
+    //       url: BASE_URL+childUrl,
+    //       type: 'POST',
+    //       data: JSON.stringify(param),
+    //       contentType: 'application/json; charset=utf-8',
+    //       headers:{
+    //                 authorization: "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiX2lkIjoiNjQzM2QwMGU4NmFhYmU1OGQ5ZGQ3NDkxIiwiaWF0IjoxNjgxMTE3ODgyfQ.ubjAROlmJB-jCDb9i6J1JQ9jYArihgKiOc_fsktXO48"
+    //             },
+    //       success: function (response) {
+    //           alert(response);
+    //       },
+    //       error: function (error) {
+    //           alert(error);
+    //       }
+    //     })
+    //   } 
   
   
       $(document).ready(()=>{
