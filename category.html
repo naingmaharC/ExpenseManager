@@ -10,18 +10,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a4bde1e6e3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Category</title>
 </head>
 
-<body>
+<body class="bgColor"> 
     <div id="nav"> </div>
     <div class="container">
         <div class="mt-4 p-5 rounded">
             <div class="container d-flex justify-content-center  align-items-center" style="height: 100vh;">
-                <div class="col col-lg-6  bg-dark text-white p-4 rounded-3">
+                <div class="col col-lg-6 formColor text-white p-4 rounded-3">
                     <h4 class="h1 text-center" style="font-family: 'Courgette', cursive;">Catagory</h4>
                     <div class="mb-2">
-                        <label for="label" class="form-label">Label</label>
+                        <label for="label" class="form-label">Label Name</label>
                         <input type="text" class="form-control" id="label" placeholder="Label">
                     </div>
                     <div class="mb-2">
@@ -35,28 +37,9 @@
     </div>
 </body>
 <script>
-    const BASE_URL = "http://46.137.197.173:3000/"
-
-    function apiCallCategoryPost(childURL, param) {
-        $.ajax({
-            url: BASE_URL + childURL,
-            type: 'POST',
-            data: JSON.stringify(param),
-            contentType: 'application/json; charset=utf-8',
-            headers:{
-                    authorization: "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Inl0aHl0aEBnbWFpbC5jb20iLCJfaWQiOiI2NDMzZGQ5OGFiMjgwYzU5MDAxN2I3MzEiLCJpYXQiOjE2ODExMjA4MTB9.PaZ9EwfRD1awBvAmIF73Ysyhqm292Tnh_LHVklkfUf0"
-                },
-            success: function (response) {
-                alert(response.status);
-            },
-            error: function (error) {
-                alert("error", error);
-            }
-        });
-    }
-
+    
     function categoryApi(param, cb) {
-        apiCallCategoryPost("category", param)
+        apiCallCategoryPost(param)
     }
 
     $(document).ready(() => {
@@ -81,6 +64,8 @@
         }
     }  
 </script>
-<script src="./js/nav.js"> </script>
+    <script src="./js/static.js"></script>
+    <script src="./js/apiCall.js" ></script>
+    <script src="./js/nav.js"> </script>
 
 </html>

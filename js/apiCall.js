@@ -32,7 +32,7 @@ instance.interceptors.response.use(
 )
 const newUserRegister = (param) => {
     return new Promise((resolve,reject)=>{
-        instance.post("register",{param})
+        instance.post("register",param)
             .then(response=> {
                 alert("Successfully Sign Up")
                 resolve(response.data)
@@ -102,3 +102,16 @@ const incomeData = (param) => {
                 })
         })        
     }    
+
+    const apiCallCategoryPost = (param) => {
+        return new Promise((resolve,reject)=>{
+            instance.post("category",param)
+                .then(response=> {
+                    alert("Successfully")
+                    resolve(response.data)
+                    })
+                    .catch(error=> {
+                        reject(error);
+                    })
+            })        
+        }    
