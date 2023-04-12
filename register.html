@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="themesColor text-light">
@@ -73,56 +74,41 @@
         </div>
     </div>
 </body>
-<script>
-    const BASE_URL = "http://46.137.197.173:3000/"
-
-    function apiCallPost1(childURL, param){
-        $.ajax({
-            url: BASE_URL+childURL,
-            type: 'POST',
-            data: JSON.stringify(param),
-            contentType: 'application/json; charset=utf-8',
-            success: function (response) {
-                alert(response.status);
-            },
-            error: function (error) {
-                alert("error",error);
-            }
-        }); 
-    }
-
-    function registerApi(param,cb){
-        apiCallPost1("register",param)
-    }
-
-    $(document).ready(() => {
-        $("#sumbit").click(() => {    
-            let param = registerData()
-            if (!param) {
-                alert("Invaild Register Data")
-            } else {
-                registerApi(param)
-            }         
-        })
-    })
-    function registerData(){
-        let name = $("#name").val()
-        if(!name) return null
-        let username = $("#email").val()
-        if(!username) return null
-        let age = $("#age").val()
-        if(!age) return null
-        let phone = $("#phone").val()
-        if(!phone) return null
-        let gender = $("#gender").val()
-        if(!gender) return null
-        let password = $("#password").val()
-        if(!password) return null
-        let image = $("#img").val()
-        if(!image) return null
-        return {
-            name,username,age,phone,gender,password,image
+    <script src="./js/static.js"></script>
+    <script src="./js/apiCall.js" ></script>
+    <script>    
+        function registerApi(param,cb){
+            newUserRegister()
         }
-    }
-</script>
+
+        $(document).ready(() => {
+            $("#sumbit").click(() => {    
+                let param = registerData()
+                if (!param) {
+                    alert("Invaild Register Data")
+                } else {
+                    registerApi(param)
+                }         
+            })
+        })
+        function registerData(){
+            let name = $("#name").val()
+            if(!name) return null
+            let username = $("#email").val()
+            if(!username) return null
+            let age = $("#age").val()
+            if(!age) return null
+            let phone = $("#phone").val()
+            if(!phone) return null
+            let gender = $("#gender").val()
+            if(!gender) return null
+            let password = $("#password").val()
+            if(!password) return null
+            let image = $("#img").val()
+            if(!image) return null
+            return {
+                name,username,age,phone,gender,password,image
+            }
+        }
+    </script>
 </html>

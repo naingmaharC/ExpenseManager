@@ -22,6 +22,7 @@ instance.interceptors.response.use(
     (resSuccess)=>resSuccess,
     (res)=>{
         console.warn(res.response)
+        if(!res.response) return res
         if(res.response.status == 400 ) alert("User Error");
         if(res.response.status == 401 )  alert("Please Login First")
         if(res.response.status == 403 )  alert("Invalid Token")
@@ -29,6 +30,18 @@ instance.interceptors.response.use(
         return res
     }
 )
+const newUserRegister = (param) => {
+    return new Promise((resolve,reject)=>{
+        instance.post("register",{param})
+            .then(response=> {
+                alert("Successfully Sign Up")
+                resolve(response.data)
+            })
+            .catch(error=> {
+                reject(error);
+            })
+    })        
+}
 
 const addExpenseData = (param) => {
     return new Promise((resolve,reject)=>{
