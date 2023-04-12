@@ -145,3 +145,13 @@ const categoryListApi = () => {
             })
     })
 }
+
+const deleteCategoryList = (id = "") => {
+    return new Promise((resolve, reject) => {
+        instance.delete("category?id=" + id)
+            .then(response => resolve(response.data))
+            .catch(error => {
+                reject(error);
+            })
+    })
+}
