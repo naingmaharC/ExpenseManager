@@ -91,11 +91,22 @@ const submitLogin = (param) => {
         })        
     }
 
+const getIncomeList = () => {
+    return new Promise((resolve,reject)=>{
+        instance.get("income")
+            .then(response=> resolve(response.data))
+            .catch(error=> {
+            reject(error);
+            })
+        })        
+}
+
 const incomeData = (param) => {
     return new Promise((resolve,reject)=>{
         instance.post("income",param)
             .then(response=> {
                 resolve(response.data)
+                window.location = "dashboard.html"
                 })
                 .catch(error=> {
                     reject(error);
