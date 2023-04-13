@@ -43,6 +43,19 @@ const newUserRegister = (param) => {
     })
 }
 
+const postExpenseApi = (param) => {
+    return new Promise((resolve, reject) => {
+        instance.post("expense", param)
+            .then(response => {
+                alert("Successfully Upload Data")
+                resolve(response.data)
+            })
+            .catch(error => {
+                reject(error);
+            })
+    })
+}
+
 const addExpenseData = (param) => {
     return new Promise((resolve, reject) => {
         instance.post("expense", { param })
@@ -155,3 +168,4 @@ const deleteCategoryList = (id = "") => {
             })
     })
 }
+
