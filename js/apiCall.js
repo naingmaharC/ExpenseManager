@@ -91,6 +91,8 @@ const submitLogin = (param) => {
     })
 }
 
+// income list data 
+
 const getIncomeList = () => {
     return new Promise((resolve,reject)=>{
         instance.get("income")
@@ -101,6 +103,17 @@ const getIncomeList = () => {
         })        
 }
 
+const  deleteIncomeList = (id = "") => {
+    return new Promise((resolve, reject) => {
+        instance.delete("income?id="+id)
+            .then(response => resolve(response.data))
+            .catch(error => {
+                reject(error);
+            })
+    })
+}
+
+//  income info
 const incomeData = (param) => {
     return new Promise((resolve, reject) => {
         instance.post("income", param)
@@ -113,15 +126,6 @@ const incomeData = (param) => {
         })        
     }
     
-    const  deleteIncomeList = (id = "") => {
-        return new Promise((resolve, reject) => {
-            instance.delete("income?id="+id)
-                .then(response => resolve(response.data))
-                .catch(error => {
-                    reject(error);
-                })
-        })
-    }
           
 const apiCallCategoryPost = (param) => {
     return new Promise((resolve, reject) => {
@@ -149,6 +153,28 @@ const categoryListApi = () => {
 const deleteCategoryList = (id = "") => {
     return new Promise((resolve, reject) => {
         instance.delete("category?id=" + id)
+            .then(response => resolve(response.data))
+            .catch(error => {
+                reject(error);
+            })
+    })
+}
+
+// expense list data
+
+const getExpenseList = () => {
+    return new Promise((resolve,reject)=>{
+        instance.get("expense")
+            .then(response=> resolve(response.data))
+            .catch(error=> {
+            reject(error);
+            })
+        })        
+}
+
+const  deleteExpenseList = (id = "") => {
+    return new Promise((resolve, reject) => {
+        instance.delete("expense?id="+id)
             .then(response => resolve(response.data))
             .catch(error => {
                 reject(error);
